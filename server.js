@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const cors = require('cors');
 require('dotenv').config();
 
 
@@ -10,6 +11,11 @@ app.use(express.static('public'))
 app.use(express.json())
 
 const connectDB = require('./config/db')
+
+const corsOptions = {
+    origin: process.env.ALLOWED_CLIENTS.split(',')
+}
+ap.use(cors(corsOptions))
 
 // Template engine
 app.set('views', path.join(__dirname, '/views'))
