@@ -15,7 +15,7 @@ const connectDB = require('./config/db')
 const corsOptions = {
     origin: process.env.ALLOWED_CLIENTS.split(',')
 }
-ap.use(cors(corsOptions))
+app.use(cors(corsOptions))
 
 // Template engine
 app.set('views', path.join(__dirname, '/views'))
